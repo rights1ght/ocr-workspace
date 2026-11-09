@@ -1,0 +1,6 @@
+file,page_no,dpi,seconds,self_rss_kb,server_rss_kb,n_blocks,n_low_conf,low_conf_ratio
+page12pt,1,96,26.35,0,2713868,6,0,0.0
+page9pt,2,96,9.41,0,2742800,3,0,0.0
+photo12pt,3,96,25.49,0,2770036,6,0,0.0
+tables/t1,4,96,4.08,0,2763124,1,0,0.0
+tables/t3,5,96,2.02,0,2804692,1,0,0.0

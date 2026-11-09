@@ -1,0 +1,14 @@
+# OCR Workspace backend — среда см. OCR/spike/.venv (python 3.12)
+fastapi==0.162.0
+uvicorn==0.54.0
+sqlalchemy==2.1.6
+python-multipart==0.0.33
+python-docx==1.2.0
+reportlab==5.1.0
+pypdfium2==5.14.0
+pdfplumber==0.11.9
+pillow==10.4.0
+beautifulsoup4==4.15.0
+# dev/test
+pytest==9.2.0
+httpx==0.28.1

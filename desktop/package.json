@@ -1,0 +1,13 @@
+{
+  "name": "ocr-workspace-shell",
+  "productName": "OCR Workspace",
+  "version": "0.1.0",
+  "description": "Обёртка Electron: запуск/остановка OCR-движка (llama-server + Surya) вместе с приложением",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^40.0.0"
+  }
+}

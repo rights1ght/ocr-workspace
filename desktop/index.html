@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>OCR Workspace</title>
+<style>
+  :root { color-scheme: light; }
+  body {
+    font-family: system-ui, sans-serif;
+    margin: 0; height: 100vh; display: grid;
+    place-items: center; background: #f7f6f3; color: #2b2b2b;
+  }
+  .card {
+    text-align: center; padding: 3rem 3.5rem; border-radius: 14px;
+    background: white; box-shadow: 0 4px 24px rgba(0,0,0,.08); max-width: 480px;
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 .6rem; }
+  #state { font-size: 1.05rem; margin: 0 0 .4rem; }
+  #sub { color: #777; font-size: .9rem; margin: 0; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+         margin-right: 8px; vertical-align: baseline; }
+  .dot.wait { background: #e2b23c; animation: pulse 1.2s infinite; }
+  .dot.ok   { background: #3ca85e; }
+  .dot.err  { background: #d24545; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  footer { position: fixed; bottom: 10px; width: 100%; text-align: center;
+           color: #999; font-size: .78rem; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>OCR Workspace</h1>
+    <p id="state"><span class="dot wait"></span>Запускаю движок OCR…</p>
+    <p id="sub">llama-server (Surya 2.5 Q8_0), порт 8181</p>
+  </div>
+  <footer>Закройте окно — движок будет остановлен и модель выгружена из памяти</footer>
+  <script>
+    const state = document.getElementById("state");
+    function setState(cls, text, sub) {
+      state.innerHTML = `<span class="dot ${cls}"></span>${text}`;
+      if (sub) document.getElementById("sub").textContent = sub;
+    }
+    window.engine.onReady((ok) => {
+      if (ok) setState("ok", "Движок OCR работает", "Модель Surya 2.5 в памяти (~1.3 ГБ) · интерфейс этапа 1 появится здесь же");
+      else setState("err", "Движок не запустился — см. журнал в терминале", "закройте окно и запустите снова");
+    });
+    window.engine.status().then((s) => {
+      if (!s.running) setState("err", "Движок не запущен");
+    });
+  </script>
+</body>
+</html>

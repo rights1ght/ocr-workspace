@@ -1,0 +1,21 @@
+# OCR Workspace — runtime / build artefacts
+backend/data/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+
+# Python venv и тяжёлые артефакты спайка
+spike/.venv/
+spike/bin/
+spike/models/
+spike/logs/
+
+# Node
+desktop/node_modules/
+frontend/node_modules/
+frontend/dist/
+*.log
+
+# env / секреты
+.env
+.env.*

@@ -1,0 +1,4 @@
+tag=t3 rows=4 cols=3 merged={'rowspan': 1, 'colspan': 1}
+header: Месяц | План | Факт
+rowspan: '130' занимает строки 2-3 колонки 2
+colspan: 'Итого: 260' занимает колонки 2-3 строки 4
